@@ -1,5 +1,3 @@
-#include "stm32f4xx_hal.h"
-#include "stm32f401xe.h"
 #include "stm32f4xx_it.h"
 
 void NMI_Handler(void)
@@ -52,7 +50,6 @@ void PendSV_Handler(void)
 
 void SysTick_Handler(void)
 {
-    HAL_IncTick();
 }
 
 void OTG_FS_IRQHandler(void)
