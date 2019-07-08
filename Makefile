@@ -82,8 +82,8 @@ flash: $(PROJECT_NAME).elf
 	openocd -f interface/$(JTAG_IFACE).cfg -f target/stm32f4x.cfg \
 		-c "init; flash probe 0; program $^ 0 verify reset; exit"
 
-debug: $(PROJECT_NAME).elf
-	openocd -f interface/$(JTAG_IFACE).cfg -f target/stm32f4x.cfg -c "init" &
-	${GDB} -ex "target remote localhost:3333" -ex "monitor reset halt" $^
-	killall openocd
+debug_ocd: $(PROJECT_NAME).elf
+	openocd -f interface/$(JTAG_IFACE).cfg -f target/stm32f4x.cfg -c "init"
 
+debug_gdb: $(PROJECT_NAME).elf
+	${GDB} -ex "target remote localhost:3333" -ex "monitor reset halt" $^
