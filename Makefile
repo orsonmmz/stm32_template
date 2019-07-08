@@ -1,7 +1,8 @@
 PROJECT_NAME = template
 
 #BOARD = NUCLEO_F401RE
-BOARD = DISCOVERY_F407VG
+#BOARD = DISCOVERY_F407VG
+BOARD = DIYMORE_F407VG
 
 PROJECT_SRC = src
 STM_SRC = Drivers/STM32F4xx_StdPeriph_Driver/src/
@@ -25,6 +26,12 @@ ifeq ($(BOARD),DISCOVERY_F407VG)
     LD_SCRIPT = stm32f407vg.ld
     FAMILY = STM32F40_41xxx
     JTAG_IFACE = stlink-v2
+endif
+ifeq ($(BOARD),DIYMORE_F407VG)
+    STARTUP = startup_stm32f40_41xxx.s
+    LD_SCRIPT = stm32f407vg.ld
+    FAMILY = STM32F40_41xxx
+    JTAG_IFACE = jlink
 endif
 
 SRCS = main.c

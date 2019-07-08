@@ -10,6 +10,11 @@
     #define LED_PORT GPIOD
     #define LED_PIN  (GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15)
 #endif /* DISCOVERY_F407VG */
+#ifdef DIYMORE_F407VG
+    #define LED_RCC  RCC_AHB1Periph_GPIOE
+    #define LED_PORT GPIOE
+    #define LED_PIN  (GPIO_Pin_0)
+#endif /* DISCOVERY_F407VG */
 
 int main(void)
 {
